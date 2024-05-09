@@ -42,13 +42,13 @@ router.get('/',(req,res,next)=>{
     res.json({restaurantes : DUMMY_RESTAURANTES});
 });
 
-router.get('/:rid',(r)=>{
+router.get('/:rid',(req,res,next)=>{
     console.log(req.params.pid);
     const restaurantes = DUMMY_RESTAURANTES.find(r=>{
         return r.id == req.params.rid;
     });
 
-    res.send(restaurantes);
+    res.json({restaurantes});
 });
 
 module.exports = router;
